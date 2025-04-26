@@ -14,8 +14,8 @@ func writeError(w http.ResponseWriter, message string, statusCode int) {
 }
 
 // Helper function to refresh token
-func refreshToken(w http.ResponseWriter) bool {
-	req, err := http.NewRequest("POST", "http://localhost:8080/refresh", nil)
+func GetAccessToken(w http.ResponseWriter) bool {
+	req, err := http.NewRequest("POST", "http://localhost:8080/GetAccessToken", nil)
 	if err != nil {
 		writeError(w, fmt.Sprintf("Failed to create refresh request: %v", err), http.StatusInternalServerError)
 		return false
